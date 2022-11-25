@@ -33,4 +33,8 @@ data class Note(
             PurssianBlue
         )
     }
+
+
 }
+
+class InvalidNoteException(message:String):Exception(message)
