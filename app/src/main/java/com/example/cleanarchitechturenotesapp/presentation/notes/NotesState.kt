@@ -1,4 +1,4 @@
-package com.example.cleanarchitechturenotesapp.notes
+package com.example.cleanarchitechturenotesapp.presentation.notes
 
 import com.example.cleanarchitechturenotesapp.model.Note
 import com.example.cleanarchitechturenotesapp.util.NoteOrder
