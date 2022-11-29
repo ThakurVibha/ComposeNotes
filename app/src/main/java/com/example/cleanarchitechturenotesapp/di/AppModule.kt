@@ -5,10 +5,7 @@ import androidx.room.Room
 import com.example.cleanarchitechturenotesapp.data_source.NoteDatabase
 import com.example.cleanarchitechturenotesapp.repository.NoteRepository
 import com.example.cleanarchitechturenotesapp.repository.NoteRepositoryImpl
-import com.example.cleanarchitechturenotesapp.use_cases.AddNote
-import com.example.cleanarchitechturenotesapp.use_cases.DeleteNotes
-import com.example.cleanarchitechturenotesapp.use_cases.GetNotes
-import com.example.cleanarchitechturenotesapp.use_cases.NotesUseCases
+import com.example.cleanarchitechturenotesapp.use_cases.*
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -37,9 +34,13 @@ object AppModule {
     @Provides
     @Singleton
     fun provideNoteUseCases(repository: NoteRepository): NotesUseCases {
-        return NotesUseCases(getNotes = GetNotes(repository), deleteNotes = DeleteNotes(repository), addNote = AddNote(repository))
+        return NotesUseCases(
+            getNotes = GetNotes(repository),
+            deleteNotes = DeleteNotes(repository),
+            addNote = AddNote(repository),
+            getNote = GetNote(repository)
+        )
     }
-
 
 
 }
