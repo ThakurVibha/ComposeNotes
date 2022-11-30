@@ -7,7 +7,7 @@ import com.example.cleanarchitechturenotesapp.ui.theme.*
 @Entity
 data class Note(
     val title: String, val content: String, val timestamp: Long,
-    val color: Int, @PrimaryKey val id: Int
+    val color: Int, @PrimaryKey val id: Int?=null
 
 
 ) {

@@ -4,6 +4,7 @@ import AddEditNoteScreen
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
+import androidx.compose.animation.ExperimentalAnimationApi
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Surface
@@ -26,7 +27,6 @@ class MainActivity : ComponentActivity() {
             CleanArchitechtureNotesAppTheme {
                 // A surface container using the 'background' color from the theme
                 Surface(
-                    modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colors.background
                 ) {
 
@@ -36,8 +36,7 @@ class MainActivity : ComponentActivity() {
                         startDestination = Screen.NotesScreen.route
                     ) {
                         composable(route = Screen.NotesScreen.route) {
-
-                            NotesScreen(navController)
+                            NotesScreen(navController=navController)
                         }
                         composable(
                             route = Screen.AddEditNoteScreen.route + "?noteId={noteId}&noteColor={noteColor}",
