@@ -9,5 +9,5 @@
  
  * Further as soon as i complete the first versio i will publish it on playstore 😎 
  
-![1669809220606](https://user-images.githubusercontent.com/72120614/204789955-2049eee0-af1f-41b0-8bc2-bc64f6c8e66a.jpg)
-![1669809220592](https://user-images.githubusercontent.com/72120614/204790005-441e259b-3ffe-4402-880d-26a7b90bdfc3.jpg)
+<img src="https://user-images.githubusercontent.com/72120614/204789955-2049eee0-af1f-41b0-8bc2-bc64f6c8e66a.jpg" width="200">
+<img src="https://user-images.githubusercontent.com/72120614/204790005-441e259b-3ffe-4402-880d-26a7b90bdfc3.jpg" width="200">
