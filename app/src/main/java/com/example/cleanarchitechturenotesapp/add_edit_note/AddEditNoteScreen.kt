@@ -28,6 +28,7 @@ import com.example.cleanarchitechturenotesapp.model.Note
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
 
+
 @Composable
 fun AddEditNoteScreen(
     navController: NavController,
@@ -49,7 +50,7 @@ fun AddEditNoteScreen(
     LaunchedEffect(key1 = true) {
         viewModel.eventFlow.collectLatest { event ->
             when(event) {
-                is AddEditNoteViewModel.UiEvent.ShowSnackBar -> {
+                is AddEditNoteViewModel.UiEvent.ShowSnackbar -> {
                     scaffoldState.snackbarHostState.showSnackbar(
                         message = event.message
                     )

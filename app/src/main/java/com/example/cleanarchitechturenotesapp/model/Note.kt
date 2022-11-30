@@ -16,21 +16,10 @@ data class Note(
             GreenBright,
             OrangeBright,
             YellowLemon,
-            IndigoDye,
-            PinkLavender,
-            GreenAquaMarine,
-            Campagne,
             DarkCyan,
-            MintGreen,
-            FireOpal,
-            Yellow,
-            Purple,
-            Blue,
-            BabyPink,
             SeaGreen,
             Red,
-            EagleGreen,
-            PurssianBlue
+
         )
     }
 

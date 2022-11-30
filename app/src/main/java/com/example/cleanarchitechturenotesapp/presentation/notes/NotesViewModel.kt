@@ -16,7 +16,9 @@ import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @HiltViewModel
-class NotesViewModel @Inject constructor(private val notesUseCases: NotesUseCases) : ViewModel() {
+class NotesViewModel @Inject constructor(
+    private val noteUseCases: NotesUseCases,
+) : ViewModel() {
 
     private val _state = mutableStateOf(NotesState())
     val state: State<NotesState> = _state
@@ -25,54 +27,49 @@ class NotesViewModel @Inject constructor(private val notesUseCases: NotesUseCase
 
     private var getNotesJob: Job? = null
 
-    //Default notes loading
     init {
         getNotes(NoteOrder.Date(OrderType.Descending))
-
-
     }
 
     fun onEvent(event: NotesEvent) {
         when (event) {
             is NotesEvent.Order -> {
-                if (state.value.noteOrder::class == event.noteOrder::class && state.value.noteOrder.orderType == event.noteOrder.orderType) {
+                if (state.value.noteOrder::class == event.noteOrder::class &&
+                    state.value.noteOrder.orderType == event.noteOrder.orderType
+                ) {
                     return
                 }
                 getNotes(event.noteOrder)
-
             }
             is NotesEvent.DeleteNote -> {
                 viewModelScope.launch {
-                    notesUseCases.deleteNotes(event.note)
+                    noteUseCases.deleteNotes(event.note)
                     recentlyDeletedNote = event.note
                 }
-
             }
             is NotesEvent.RestoreNote -> {
-
                 viewModelScope.launch {
-                    notesUseCases.addNote(recentlyDeletedNote ?: return@launch)
+                    noteUseCases.addNote(recentlyDeletedNote ?: return@launch)
                     recentlyDeletedNote = null
                 }
-
             }
             is NotesEvent.ToggleOrderSection -> {
                 _state.value = state.value.copy(
                     isOrderSectionVisible = !state.value.isOrderSectionVisible
                 )
-
             }
         }
     }
 
     private fun getNotes(noteOrder: NoteOrder) {
-
         getNotesJob?.cancel()
-        getNotesJob = notesUseCases.getNotes(noteOrder).onEach { notes ->
-            _state.value = state.value.copy(notes = notes)
-        }
-
+        getNotesJob = noteUseCases.getNotes(noteOrder)
+            .onEach { notes ->
+                _state.value = state.value.copy(
+                    notes = notes,
+                    noteOrder = noteOrder
+                )
+            }
             .launchIn(viewModelScope)
     }
-
 }
