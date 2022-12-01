@@ -1,4 +1,4 @@
-package com.example.cleanarchitechturenotesapp.add_edit_note
+package com.example.cleanarchitechturenotesapp.presentation.add_edit_note
 
 import androidx.compose.runtime.State
 import androidx.compose.runtime.mutableStateOf

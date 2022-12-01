@@ -15,6 +15,7 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import androidx.navigation.navArgument
+import com.example.cleanarchitechturenotesapp.presentation.note_folder.FolderScreen
 import com.example.cleanarchitechturenotesapp.presentation.notes.NotesScreen
 import com.example.cleanarchitechturenotesapp.ui.theme.CleanArchitechtureNotesAppTheme
 import com.example.cleanarchitechturenotesapp.util.Screen
